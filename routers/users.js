@@ -72,9 +72,9 @@ Router.post("/api/user/register",(req, res)=>{
         if(!user){
           
             const userDocument = new userModel(data);
-            userDocument.save().then((data)=>{
-                res.send(data)
-                console.log(data);
+            userDocument.save().then((registeredData)=>{
+                res.send(registeredData)
+                console.log(registeredData);
             }).catch(err=>{
                 console.log(err);
                 res.status(500).send(err);
