@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const md5 = require('md5');
 const  {v4} = require('uuid');
 
-
+const port=4000
 const Router = express.Router();
 
 
@@ -57,8 +57,8 @@ const userModel=mongoose.model("user",Schema)
 
 
 Router.post("/api/user/register",(req, res)=>{
-
     const data = req.body;
+    console.log(data,"ni ")
     
     const salt =  (Math.random() + 1).toString(36).substring(7);
     const password =md5(data.password+salt)  
