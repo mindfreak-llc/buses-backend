@@ -132,4 +132,73 @@ Router.get("/api/users",function(req,res){
         })
 })
 
+
+//----------update userName------------------------------------------------------
+Router.put("/api/update/userName",function(req,res){
+    userModel.findOneAndUpdate({userUid:req.body.userUid},{userName:req.body.userName}).then((data)=>{
+            
+        console.log({status: true,message:"userName updated successfully"})
+       res.send({status: true,message:"userName updated successfully"})
+      }
+      ).catch((error)=>{
+        
+        console.log({status: false,message:error.message})
+       res.send({status: false,message:error.message}) 
+      })
+})
+
+//----------update password------------------------------------------------------
+Router.put("/api/update/password",function(req,res){
+    userModel.findOneAndUpdate({userUid:req.body.userUid},{password:req.body.password}).then((data)=>{
+            
+        console.log({status: true,message:"password updated successfully"})
+       res.send({status: true,message:"password updated successfully"})
+      }
+      ).catch((error)=>{
+        
+        console.log({status: false,message:error.message})
+       res.send({status: false,message:error.message}) 
+      })
+})
+//----------update email------------------------------------------------------
+Router.put("/api/update/userName",function(req,res){
+    userModel.findOneAndUpdate({userUid:req.body.userUid},{email:req.body.email}).then((data)=>{
+            
+        console.log({status: true,message:"email updated successfully"})
+       res.send({status: true,message:"email updated successfully"})
+      }
+      ).catch((error)=>{
+        
+        console.log({status: false,message:error.message})
+       res.send({status: false,message:error.message}) 
+      })
+})
+//----------update type------------------------------------------------------
+Router.put("/api/update/type",function(req,res){
+    userModel.findOneAndUpdate({userUid:req.body.userUid},{type:req.body.type}).then((data)=>{
+            
+        console.log({status: true,message:"type updated successfully"})
+       res.send({status: true,message:"type updated successfully"})
+      }
+      ).catch((error)=>{
+        
+        console.log({status: false,message:error.message})
+       res.send({status: false,message:error.message}) 
+      })
+})
+
+//----------delete userdata------------------------------------------------------
+Router.delete("/api/delete/busdata",function(req,res){
+    userModel.findOneAndDelete({userUid:req.body.userUid}).then((data)=>{
+            
+        console.log({status: true,message:"userdata deleted successfully"})
+       res.send({status: true,message:"userdata deleted successfully"})
+      }
+      ).catch((error)=>{
+        
+        console.log({status: false,message:error.message})
+       res.send({status: false,message:error.message}) 
+      })
+})
+
 module.exports = Router
