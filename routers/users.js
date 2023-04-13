@@ -91,10 +91,6 @@ Router.post("/api/user/register",(req, res)=>{
   
   
 });
-
-
-
-
 Router.post("/api/user/login", (req, res) => {
     userModel.findOne({email:req.body.email}).then((user)=>{
        if(user){
