@@ -13,7 +13,7 @@ const Schema = new mongoose.Schema({
     busUid:String, 
     latitude :Number,
     longitude:Number,
-    lastOnline:String
+    lastOnline:Number,
 })
 
  
@@ -37,7 +37,7 @@ Router.post("/api/addbusdata",(req, res)=>{
         console.log(err);
         res.status(500).send(err);
 
-    }); 
+    });
       
   
   

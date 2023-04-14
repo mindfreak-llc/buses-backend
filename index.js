@@ -12,14 +12,13 @@ app.use(express.json());
 const port=4000
 //------
 
+
+
 app.use(cors())
 app.use(usersCollection)
 app.use(busesCollection)
 app.use(schedulesCollection)
 //
-
- 
-
 app.listen(port,()=>{
     console.log("Server running at http://localhost:" +port);
 })
