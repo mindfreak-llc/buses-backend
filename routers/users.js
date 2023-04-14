@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const md5 = require('md5');
 const  {v4} = require('uuid');
 
-
+const port=4000
 const Router = express.Router();
 
-
+const app=express();
 const Schema = new mongoose.Schema({
     userUid:String,
     userName:String,
@@ -54,11 +54,15 @@ const userModel=mongoose.model("user",Schema)
 //     }
 // }) 
 
-
+app.get("/api/data",(req,res)=>{
+    
+    console.log('here')
+    res.send("hello wolrd")
+})
 
 Router.post("/api/user/register",(req, res)=>{
-
     const data = req.body;
+    console.log(data,"ni ")
     
     const salt =  (Math.random() + 1).toString(36).substring(7);
     const password =md5(data.password+salt)  
@@ -92,6 +96,7 @@ Router.post("/api/user/register",(req, res)=>{
   
 });
 Router.post("/api/user/login", (req, res) => {
+    console.log(req.body,"i m ni")
     userModel.findOne({email:req.body.email}).then((user)=>{
        if(user){
             const password = md5(req.body.password+user.salt);
