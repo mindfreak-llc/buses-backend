@@ -55,7 +55,7 @@ Router.post("/api/one/bus", (req, res) => {
     });
 });
 
-Router.get("/api/all/buses",function(req,res){
+Router.get("/api/all/buses",(req,res)=>{
     busModel.find({}).then((data)=>{
             
         res.send(data);
@@ -71,7 +71,7 @@ Router.get("/api/all/buses",function(req,res){
 
 
 //----------update latitude------------------------------------------------------
-Router.put("/api/update/latitude",function(req,res){
+Router.put("/api/update/latitude",(req,res)=>{
     busModel.findOneAndUpdate({busUid:req.body.busUid},{latitude:req.body.latitude}).then((data)=>{
             
         console.log({status: true,message:"latitude updated successfully"})
@@ -85,7 +85,7 @@ Router.put("/api/update/latitude",function(req,res){
 })
 
 //----------update longitude------------------------------------------------------
-Router.put("/api/update/longitude",function(req,res){
+Router.put("/api/update/longitude",(req,res)=>{
     busModel.findOneAndUpdate({busUid:req.body.busUid},{longitude:req.body.longitude}).then((data)=>{
             
         console.log({status: true,message:"longitude updated successfully"})
@@ -100,7 +100,7 @@ Router.put("/api/update/longitude",function(req,res){
  
 
 //----------delete busdata------------------------------------------------------
-Router.delete("/api/delete/busdata",function(req,res){
+Router.delete("/api/delete/busdata",(req,res)=>{
     busModel.findOneAndDelete({busUid:req.body.busUid}).then((data)=>{
             
         console.log({status: true,message:"busdata deleted successfully"})

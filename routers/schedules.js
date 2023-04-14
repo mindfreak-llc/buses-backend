@@ -62,7 +62,7 @@ Router.post("/api/one/scheduledata", (req, res) => {
 });
 //---------get all schedules data -------------------------------------------------------
 
-Router.get("/api/all/schedulesdata",function(req,res){
+Router.get("/api/all/schedulesdata",(req,res)=>{
     busSheduleModel.find({}).then((data)=>{
             
         res.send(data);
@@ -76,7 +76,7 @@ Router.get("/api/all/schedulesdata",function(req,res){
 })
 
 //----------udate busnumber------------------------------------------------------
-Router.put("/api/update/schedule/busnumber",function(req,res){
+Router.put("/api/update/schedule/busnumber",(req,res)=>{
     busSheduleModel.findOneAndUpdate({scheduleUid:req.body.scheduleUid},{busNumber:req.body.busNumber}).then((data)=>{
             
         console.log({status: true,message:"busnumber updated successfully"})
@@ -90,7 +90,7 @@ Router.put("/api/update/schedule/busnumber",function(req,res){
 })
 
 //----------udate timings------------------------------------------------------
-Router.put("/api/update/schedule/timings",function(req,res){
+Router.put("/api/update/schedule/timings",(req,res)=>{
     busSheduleModel.findOneAndUpdate({scheduleUid:req.body.scheduleUid},{timings:req.body.timings}).then((data)=>{
             
         console.log({status: true,message:"timings updated successfully"})
@@ -103,7 +103,7 @@ Router.put("/api/update/schedule/timings",function(req,res){
       })
 })
 //----------udate startingPoint------------------------------------------------------
-Router.put("/api/update/schedule/startingPoint",function(req,res){
+Router.put("/api/update/schedule/startingPoint",(req,res)=>{
     busSheduleModel.findOneAndUpdate({scheduleUid:req.body.scheduleUid},{startingPoint:req.body.startingPoint}).then((data)=>{
             
         console.log({status: true,message:"startingPoint updated successfully"})
@@ -118,7 +118,7 @@ Router.put("/api/update/schedule/startingPoint",function(req,res){
 
  
 //----------delete startingPoint------------------------------------------------------
-Router.delete("/api/delete/scheduledata",function(req,res){
+Router.delete("/api/delete/scheduledata",(req,res)=>{
     busSheduleModel.findOneAndDelete({scheduleUid:req.body.scheduleUid}).then((data)=>{
             
         console.log({status: true,message:"scheduledata deleted successfully"})

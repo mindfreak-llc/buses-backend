@@ -115,7 +115,7 @@ Router.post("/api/user/login", (req, res) => {
     });
 });
 
-Router.get("/api/users",function(req,res){
+Router.get("/api/users",(req,res)=>{
     userModel.find({}).then((data)=>{
             
           res.send(data);
@@ -130,7 +130,7 @@ Router.get("/api/users",function(req,res){
 
 
 //----------update userName------------------------------------------------------
-Router.put("/api/update/userName",function(req,res){
+Router.put("/api/update/userName",(req,res)=>{
     userModel.findOneAndUpdate({userUid:req.body.userUid},{userName:req.body.userName}).then((data)=>{
             
         console.log({status: true,message:"userName updated successfully"})
@@ -144,7 +144,7 @@ Router.put("/api/update/userName",function(req,res){
 })
 
 //----------update password------------------------------------------------------
-Router.put("/api/update/password",function(req,res){
+Router.put("/api/update/password",(req,res)=>{
     userModel.findOneAndUpdate({userUid:req.body.userUid},{password:req.body.password}).then((data)=>{
             
         console.log({status: true,message:"password updated successfully"})
@@ -157,7 +157,7 @@ Router.put("/api/update/password",function(req,res){
       })
 })
 //----------update email------------------------------------------------------
-Router.put("/api/update/userName",function(req,res){
+Router.put("/api/update/userName",(req,res)=>{
     userModel.findOneAndUpdate({userUid:req.body.userUid},{email:req.body.email}).then((data)=>{
             
         console.log({status: true,message:"email updated successfully"})
@@ -170,7 +170,7 @@ Router.put("/api/update/userName",function(req,res){
       })
 })
 //----------update type------------------------------------------------------
-Router.put("/api/update/type",function(req,res){
+Router.put("/api/update/type",(req,res)=>{
     userModel.findOneAndUpdate({userUid:req.body.userUid},{type:req.body.type}).then((data)=>{
             
         console.log({status: true,message:"type updated successfully"})
@@ -184,7 +184,7 @@ Router.put("/api/update/type",function(req,res){
 })
 
 //----------delete userdata------------------------------------------------------
-Router.delete("/api/delete/busdata",function(req,res){
+Router.delete("/api/delete/busdata",(req,res)=>{
     userModel.findOneAndDelete({userUid:req.body.userUid}).then((data)=>{
             
         console.log({status: true,message:"userdata deleted successfully"})
