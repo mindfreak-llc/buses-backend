@@ -9,7 +9,7 @@ const schedulesCollection= require('./routers/schedules')
 const app = express();
 app.use(express.json());
 
-
+const port=4000
 //------
 
 app.use(cors())
@@ -20,7 +20,7 @@ app.use(schedulesCollection)
 
  
 
-app.listen(5642,function(){
-    console.log("Server running at http://localhost:5642");
+app.listen(port,()=>{
+    console.log("Server running at http://localhost:" +port);
 })
 
