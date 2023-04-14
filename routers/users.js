@@ -7,7 +7,7 @@ const  {v4} = require('uuid');
 const port=4000
 const Router = express.Router();
 
-
+const app=express();
 const Schema = new mongoose.Schema({
     userUid:String,
     userName:String,
@@ -54,12 +54,11 @@ const userModel=mongoose.model("user",Schema)
 //     }
 // }) 
 
-Router.post("/api/data",(req,res)=>{
-    const data=req.body
-    console.log('here'
-    )
-    res.send(data)
-}   )
+app.get("/api/data",(req,res)=>{
+    
+    console.log('here')
+    res.send("hello wolrd")
+})
 
 Router.post("/api/user/register",(req, res)=>{
     const data = req.body;
