@@ -12,7 +12,8 @@ const Router = express.Router();
 const Schema = new mongoose.Schema({
     busUid:String, 
     latitude :Number,
-    longitude:Number
+    longitude:Number,
+    lastOnline:String
 })
 
  
@@ -26,6 +27,7 @@ Router.post("/api/addbusdata",(req, res)=>{
 
     const data = req.body;
     data.busUid = v4();
+    data.lastOnline =Date.now();
 
     const busDocument = new busModel(data);
     busDocument.save().then((busdata)=>{
@@ -35,7 +37,7 @@ Router.post("/api/addbusdata",(req, res)=>{
         console.log(err);
         res.status(500).send(err);
 
-    });
+    }); 
       
   
   
