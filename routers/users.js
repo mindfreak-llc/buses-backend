@@ -54,7 +54,12 @@ const userModel=mongoose.model("user",Schema)
 //     }
 // }) 
 
-
+Router.post("/api/data",(req,res)=>{
+    const data=req.body
+    console.log('here'
+    )
+    res.send(data)
+}   )
 
 Router.post("/api/user/register",(req, res)=>{
     const data = req.body;
@@ -96,6 +101,7 @@ Router.post("/api/user/register",(req, res)=>{
 
 
 Router.post("/api/user/login", (req, res) => {
+    console.log(req.body,"i m ni")
     userModel.findOne({email:req.body.email}).then((user)=>{
        if(user){
             const password = md5(req.body.password+user.salt);
