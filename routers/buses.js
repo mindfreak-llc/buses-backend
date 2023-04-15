@@ -13,7 +13,7 @@ const Schema = new mongoose.Schema({
     busUid:String, 
     latitude :Number,
     longitude:Number,
-    lastOnline:String
+    lastOnline:Number
 })
 
  
@@ -22,6 +22,8 @@ const Schema = new mongoose.Schema({
 const busModel=mongoose.model("buse",Schema)
  
 //-----bus data-----------------------------------------
+
+
 
 Router.post("/api/addbusdata",(req, res)=>{
 
